@@ -51,9 +51,18 @@ public class PizzaService
         _context.SaveChanges();
     }
 
-    public void UpdateSauce(int PizzaId, int SauceId)
+    public void UpdateSauce(int pizzaId, int sauceId)
     {
-        throw new NotImplementedException();
+        var pizzaToUpdate = _context.Pizzas.Find(pizzaId);
+        var sauceToUpdate = _context.Sauces.Find(sauceId);
+
+        if (pizzaToUpdate is null || sauceToUpdate is null)
+            throw new InvalidOperationException("Pizza and sauce does not exist");
+
+        pizzaToUpdate.Sauce = sauceToUpdate;
+
+        _context.SaveChanges();
+
     }
 
     public void DeleteById(int id)
