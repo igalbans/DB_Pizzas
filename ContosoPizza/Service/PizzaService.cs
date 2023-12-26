@@ -30,7 +30,10 @@ public class PizzaService
 
     public Pizza? Create(Pizza newPizza)
     {
-        throw new NotImplementedException();
+        _context.Pizzas.Add(newPizza);
+        _context.SaveChanges();
+
+        return newPizza;
     }
 
     public void AddTopping(int PizzaId, int ToppingId)
