@@ -67,6 +67,16 @@ public class PizzaService
 
     public void DeleteById(int id)
     {
-        throw new NotImplementedException();
+        var pizzaToDelete = _context.Pizzas.Find(id);
+
+        if (pizzaToDelete is not null)
+        {
+            _context.Pizzas.Remove(pizzaToDelete);
+            _context.SaveChanges();
+        }
+        else
+            throw new InvalidOperationException("Pizza does not exisist");
+
+
     }
 }
