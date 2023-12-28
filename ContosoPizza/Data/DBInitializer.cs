@@ -40,7 +40,7 @@ namespace ContosoPizza.Data
                 },
                 new Pizza
                 {
-                    Name="Alfredi Chiken",
+                    Name="Alfredo Chiken",
                     Sauce =alfredoSauce,
                     Toppings = new List<Topping>
                     {
